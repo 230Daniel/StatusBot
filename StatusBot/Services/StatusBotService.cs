@@ -47,7 +47,7 @@ namespace StatusBot.Services
             }
 
             var user = Bot.GetUser(e.MemberId) as IUser ?? await Bot.FetchUserAsync(e.MemberId);
-            _logger.LogInformation($"{user.Tag} updated their status to '{status}'");
+            _logger.LogInformation("{User} updated their status to {Status}", user.Tag, status);
 
             await _recorderService.SaveStatusAsync(e.MemberId, status);
         }

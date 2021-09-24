@@ -93,6 +93,7 @@ namespace StatusBot.Services
                         }
 
                         await File.AppendAllTextAsync(filename, $"{DateTime.UtcNow},{status}\n");
+                        break;
                     }
                     catch (IOException)
                     {
