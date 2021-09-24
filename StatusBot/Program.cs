@@ -16,6 +16,7 @@ namespace StatusBot
         public static async Task Main(string[] args)
         {
             var host = Host.CreateDefaultBuilder(args)
+                .UseSystemd()
                 .UseSerilog()
                 .ConfigureServices(ConfigureServices)
                 .ConfigureDiscordBot((context, bot) =>
@@ -35,7 +36,7 @@ namespace StatusBot
 
             try
             {
-                Log.Information("Starting up...");
+                Log.Information("Running host");
                 await host.RunAsync();
             }
             catch (Exception ex)
